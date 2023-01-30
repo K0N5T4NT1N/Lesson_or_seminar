@@ -13,12 +13,11 @@ int NumberB = Convert.ToInt32(Console.ReadLine());
 
 if (NumberA>NumberB)
 {
-    System.Console.WriteLine("a  = "+ NumberA + "b = "+ NumberB+" -> Max = "+ NumberA + " Min = "+NumberB);
+    System.Console.WriteLine($"Max = {NumberA}  Min = {NumberB}");
     }
 else
 {
-    System.Console.WriteLine("a  = "+ NumberA + " b = "+ NumberB+" -> Max = "+ NumberB + " Min = "+NumberA);
+    System.Console.WriteLine($"Max = {NumberB} Min = {NumberA}");
     }
 
 
-    Console.WriteLine($"интерполяция числа = {NumberA}");
