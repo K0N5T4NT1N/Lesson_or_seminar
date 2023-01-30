@@ -19,3 +19,6 @@ else
 {
     System.Console.WriteLine("a  = "+ NumberA + " b = "+ NumberB+" -> Max = "+ NumberB + " Min = "+NumberA);
     }
+
+
+    Console.WriteLine($"интерполяция числа = {NumberA}");
