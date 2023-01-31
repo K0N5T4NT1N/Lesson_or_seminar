@@ -95,18 +95,17 @@ Console.Clear();
 Console.WriteLine("Задача 8: вывод четных чисел от 1 до N");  
 Console.WriteLine("Введите число: ");
 int NumberA3 = Convert.ToInt32(Console.ReadLine());
-int NumberB3 = 2;
-if((NumberA3 == 1)||(NumberA3 == 0))
+int NumberPositiv = 2;
+//int NumberNegativ = -2;
+if((NumberA3 == 1)||(NumberA3 == 0)||(NumberA3 == -1))
 {
     Console.WriteLine("в данном диапазоне нет решения");
 }
 else
 {
 Console.Write($"{NumberA3} -> ");
-    while (NumberB3<=NumberA3)
+    while (NumberPositiv<=NumberA3)
     {
-        Console.Write($"{NumberB3} ");
-        NumberB3+=2;
-    
+        Console.Write($"{NumberPositiv} "); NumberPositiv+=2;    
     } 
 }
