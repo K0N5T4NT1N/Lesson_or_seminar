@@ -6,7 +6,7 @@
 a = 5    b = 7  -> max = 7 
 a = 2    b = 10 -> max = 10 
 a = -9   b = -3 -> max = -3 
-*/
+
 
 Console.Clear(); 
 Console.WriteLine("Задача 2: нахождение максимального и минимального числа");  
@@ -34,7 +34,7 @@ Console.ReadKey();
 2, 3, 7   -> 7 
 44, 5, 78 -> 78 
 22, 3, 9  -> 22
-*/
+
 
 Console.Clear();
 Console.WriteLine("Задача 4: нахождение максимального значения трех чисел");  
@@ -54,7 +54,7 @@ if(Max < NumberC1)
 {
     Max = NumberC1;
 }
-Console.WriteLine($"Максимальное число = {Max}");
+Console.WriteLine($"Максимальное число -> {Max}");
 
 Console.WriteLine("Для продолжения нажмите любую клавишу..." );
 Console.ReadKey();
@@ -65,7 +65,7 @@ Console.ReadKey();
 (делится ли оно на два без остатка).
 
 4 -> да -3 -> нет 7 -> нет
-*/
+
 
 Console.Clear();
 Console.WriteLine("Задача 6: проверка на деление без остатка");  
@@ -91,3 +91,22 @@ Console.ReadKey();
 5 -> 2, 4 8 -> 2, 4, 6, 8
 */
 
+Console.Clear();
+Console.WriteLine("Задача 8: вывод четных чисел от 1 до N");  
+Console.WriteLine("Введите число: ");
+int NumberA3 = Convert.ToInt32(Console.ReadLine());
+int NumberB3 = 2;
+if((NumberA3 == 1)||(NumberA3 == 0))
+{
+    Console.WriteLine("в данном диапазоне нет решения");
+}
+else
+{
+Console.Write($"{NumberA3} -> ");
+    while (NumberB3<=NumberA3)
+    {
+        Console.Write($"{NumberB3} ");
+        NumberB3+=2;
+    
+    } 
+}
