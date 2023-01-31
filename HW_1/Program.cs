@@ -71,3 +71,23 @@ Console.Clear();
 Console.WriteLine("Задача 6: проверка на деление без остатка");  
 Console.WriteLine("Введите число: ");
 int NumberA2 = Convert.ToInt32(Console.ReadLine());
+
+if(NumberA2 % 2 == 0)
+{
+    Console.WriteLine($"{NumberA2} -> Да");
+}
+else
+{
+    Console.WriteLine($"{NumberA2} -> Нет");
+}
+Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+Console.ReadKey();
+
+/*
+Задача 8: Напишите программу, которая на вход 
+принимает число (N), а на выходе показывает 
+все чётные числа от 1 до N.
+
+5 -> 2, 4 8 -> 2, 4, 6, 8
+*/
+
