@@ -96,16 +96,24 @@ Console.WriteLine("Задача 8: вывод четных чисел от 1 д�
 Console.WriteLine("Введите число: ");
 int NumberA3 = Convert.ToInt32(Console.ReadLine());
 int NumberPositiv = 2;
-//int NumberNegativ = -2;
+int NumberNegativ = -2;
 if((NumberA3 == 1)||(NumberA3 == 0)||(NumberA3 == -1))
 {
     Console.WriteLine("в данном диапазоне нет решения");
 }
-else
+else if(NumberA3 > 0)
 {
 Console.Write($"{NumberA3} -> ");
     while (NumberPositiv<=NumberA3)
     {
         Console.Write($"{NumberPositiv} "); NumberPositiv+=2;    
+    } 
+}
+else 
+{
+    Console.Write($"{NumberA3} -> ");
+    while (NumberNegativ>=NumberA3)
+    {
+        Console.Write($"{NumberNegativ} "); NumberNegativ+=-2;    
     } 
 }
