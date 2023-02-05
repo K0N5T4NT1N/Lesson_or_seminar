@@ -9,7 +9,7 @@
 
 Console.Clear();
 Console.WriteLine("Задача 10 определение второго числа");
-Console.Write("Введите трехзначное число: ");
+Console.Write("Введите трехзначное положительное число: ");
 int num;
 if (!int.TryParse(Console.ReadLine(), out num))
 {
@@ -19,7 +19,7 @@ if (!int.TryParse(Console.ReadLine(), out num))
 
 int result = (num / 10) % 10;
 
-if (num / 100 < 1 || num / 100 > 10) //проверкана трехзначное число
+if (num / 100 < 1 || num / 100 > 10) //проверка на трехзначное положительное число 
   Console.WriteLine("Число не является трехзначным");
 else
   Console.WriteLine($"Ответ: {result}");
@@ -44,7 +44,7 @@ if (!int.TryParse(Console.ReadLine(), out Numbers))
     return;
 }
 
-int Value = Math.Abs(Numbers);   // Проверка отрицательных чисел
+int Value = Math.Abs(Numbers);   // Проверка отрицательных чисел (можно было бы домножть на -1 при условии value < 0)
 
 if (Value <= 99)
 {
@@ -58,6 +58,8 @@ while (Value > 999)
 }
 
 Console.WriteLine($"Третья цифра в числе - {Value % 10}");
+Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+Console.ReadKey();
 
 /*
 Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
@@ -66,3 +68,25 @@ Console.WriteLine($"Третья цифра в числе - {Value % 10}");
 7 -> да
 1 -> нет
 */
+
+Console.Clear();
+Console.WriteLine("Задача 15 день недели: будни/выходной");
+Console.WriteLine("Введите день недели: (пн: 1, вт: 2, ср: 3, чт: 4, пт: 5 сб: 6, вс: 7)");
+
+int Day;
+if (! int.TryParse(Console.ReadLine(), out Day))
+{
+  Console.WriteLine("Некорректный ввод");
+  return;
+}
+
+if (Day < 0 || Day > 7)
+{
+  Console.WriteLine("Нет такого дня недели!");
+  return;
+}
+
+if (Day == 6 || Day == 7)
+Console.WriteLine("Выходной");
+else
+Console.WriteLine("Будний день");
