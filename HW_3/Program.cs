@@ -41,7 +41,7 @@ double numZ2 = double.Parse(Console.ReadLine());
 
 double numSQRT = Math.Sqrt(Math.Pow((numX1-numX2),2)+Math.Pow((numY1-numY2),2)+Math.Pow((numZ1-numZ2),2));
 
-Console.Write(numSQRT);
+Console.WriteLine($"Расстояние между точками -> {numSQRT}");
 Console.WriteLine("Для продолжения нажмите любую клавишу..." );
 Console.ReadKey();
 
@@ -52,3 +52,18 @@ Console.ReadKey();
 3 -> 1, 8, 27
 5 -> 1, 8, 27, 64, 125
 */
+
+Console.Clear();
+System.Console.WriteLine("Задача 23: таблица кубов от 1 до N");
+System.Console.Write("Введите число N: ");
+int NumN = int.Parse(Console.ReadLine()); // или лучше через дабл??
+
+int Cube = 1;
+
+while(Cube <= NumN)
+{
+    System.Console.Write(Math.Pow(Cube, 3) + " ");
+    Cube++;
+}
+Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+Console.ReadKey();
