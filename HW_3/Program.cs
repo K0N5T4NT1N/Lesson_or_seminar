@@ -25,14 +25,50 @@ if (NumPoly >=bitDepthBegin && NumPoly <= bitDepthEnd)
 }
 if (NumPoly % 10 == NumPoly / 10000 && NumPoly % 100 / 10 == NumPoly / 1000 % 10) // сравниваем первый с последним знаком и второй с предпоследним
 {
-    System.Console.WriteLine($"{NumPoly} -> да, полиндром");
+    Console.WriteLine($"{NumPoly} -> да, полиндром");
 }
 else
 {
-    System.Console.WriteLine($"{NumPoly} -> не полиндром");
+    Console.WriteLine($"{NumPoly} -> не полиндром");
 }
 Console.WriteLine("Для продолжения нажмите любую клавишу..." );
 Console.ReadKey();
+
+/*
+Console.Clear();
+Console.WriteLine("Задача 19: определение является ли число полиндромом"); //альтернитивное решение
+Console.WriteLine("Введите целое число:");
+if (!long.TryParse(Console.ReadLine(), out NumPoly))
+{
+    Console.WriteLine("Некорректный ввод");
+    return;
+}
+long NumPolyModul = Math.Abs(NumPoly);
+uint Depth = 1;
+long ValueBegin = NumPolyModul;
+long ValueEnd = 0;
+
+for (; NumPolyModul > 0; Depth++)
+{
+    NumPolyModul /= 10;
+}
+
+while (Depth > 0)
+{
+    ValueEnd = (Math.Pow())
+}
+    if (ValueBegin == ValueEnd)
+{
+    Console.WriteLine($"{NumPoly} -> да, полиндром");
+}
+    else
+{
+    Console.WriteLine($"{NumPoly} -> не полиндром");
+}
+Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+Console.ReadKey();
+*/
+
 /*
 Задача 21: Напишите программу, которая принимает на вход
 координаты двух точек и находит расстояние между ними в 3D пространстве.
@@ -40,7 +76,6 @@ Console.ReadKey();
 A (3,6,8); B (2,1,-7), -> 15.84
 A (7,-5, 0); B (1,-1,9) -> 11.53
 */
-
 
 Console.Clear();
 Console.WriteLine("Задача 21: определение расстояния между точками в 3D");
