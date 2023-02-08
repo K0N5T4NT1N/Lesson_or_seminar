@@ -8,6 +8,31 @@
 23432 -> да
 */
 
+#nullable disable
+Console.Clear();
+Console.WriteLine("Задача 19: определение является ли число полиндромом"); //решение по ТЗ
+int NumPoly;
+while (true)
+{
+Console.WriteLine("Введите пятизначное, положительное целое число:");
+NumPoly = int.Parse(Console.ReadLine());
+int bitDepthBegin = 10000;
+int bitDepthEnd = 99999;
+if (NumPoly >=bitDepthBegin && NumPoly <= bitDepthEnd)
+    {
+    break;
+    }
+}
+if (NumPoly % 10 == NumPoly / 10000 && NumPoly % 100 / 10 == NumPoly / 1000 % 10) // сравниваем первый с последним знаком и второй с предпоследним
+{
+    System.Console.WriteLine($"{NumPoly} -> да, полиндром");
+}
+else
+{
+    System.Console.WriteLine($"{NumPoly} -> не полиндром");
+}
+Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+Console.ReadKey();
 /*
 Задача 21: Напишите программу, которая принимает на вход
 координаты двух точек и находит расстояние между ними в 3D пространстве.
@@ -16,7 +41,7 @@ A (3,6,8); B (2,1,-7), -> 15.84
 A (7,-5, 0); B (1,-1,9) -> 11.53
 */
 
-#nullable disable
+
 Console.Clear();
 Console.WriteLine("Задача 21: определение расстояния между точками в 3D");
 Console.WriteLine("Введите координаты первой точки:");
@@ -60,10 +85,11 @@ int NumN = int.Parse(Console.ReadLine()); // или лучше через даб
 
 int Cube = 1;
 
+Console.Write($"{NumN} -> ");
 while(Cube <= NumN)
 {
-    System.Console.Write(Math.Pow(Cube, 3) + " ");
+    System.Console.Write(Math.Pow(Cube, 3) + ", ");
     Cube++;
 }
-Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+
 Console.ReadKey();
