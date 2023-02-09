@@ -38,26 +38,37 @@ Console.ReadKey();
 Console.Clear();
 Console.WriteLine("Задача 19: определение является ли число полиндромом"); //альтернитивное решение
 Console.WriteLine("Введите целое число:");
+long NumPoly;
 if (!long.TryParse(Console.ReadLine(), out NumPoly))
 {
     Console.WriteLine("Некорректный ввод");
     return;
 }
 long NumPolyModul = Math.Abs(NumPoly);
-uint Depth = 1;
-long ValueBegin = NumPolyModul;
+uint Depth = 0;
+long ValueTemp = NumPolyModul;
+long ValueBegin = 0;
 long ValueEnd = 0;
+long ValueInvert = 0;
 
-for (; NumPolyModul > 0; Depth++)
+for (; ValueTemp > 0; Depth++)
 {
-    NumPolyModul /= 10;
+    ValueTemp /= 10;
 }
-
+ValueTemp = NumPolyModul; 
+Console.WriteLine(Depth);
+Console.ReadKey();
+ValueBegin = 10000000000000000;//Math.Pow(Depth, 10);
 while (Depth > 0)
 {
-    ValueEnd = (Math.Pow())
+    ValueEnd = ValueTemp % 10;
+    ValueTemp /= 10;
+    ValueEnd *= ValueBegin;
+    ValueBegin /= 10;
+    ValueInvert = ValueInvert + ValueEnd;
+    Depth--;
 }
-    if (ValueBegin == ValueEnd)
+    if (ValueInvert == NumPolyModul)
 {
     Console.WriteLine($"{NumPoly} -> да, полиндром");
 }
