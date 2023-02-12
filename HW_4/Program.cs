@@ -8,6 +8,15 @@
     return result;
 }
 
+int SumN(int NumN)
+{
+    int result = 0;
+    while (NumN>0)
+    {
+        result += NumN % 10; NumN /= 10;
+    }
+    return result;
+}
 
 
 /* Задача 25: Напишите цикл, который принимает на вход 
@@ -18,6 +27,7 @@
 */
 
 Console.Clear();
+Console.WriteLine("Задача 25: Возведение A в степень B");
 Console.WriteLine("Введите число A: ");
 int NumA = int.Parse(Console.ReadLine());
 
@@ -38,7 +48,14 @@ Console.ReadKey();
 9012 -> 12
 */
 
+Console.Clear();
+Console.WriteLine("Задача 27: Суммма цифр числа N");
+Console.WriteLine("Введите число: ");
+int NumN = int.Parse(Console.ReadLine());
 
+Console.WriteLine($"{NumN} -> {SumN(NumN)}");
+Console.WriteLine("Для продолжения нажмите любую клавишу..." );
+Console.ReadKey();
 
 /*
 Задача 29: Напишите программу, которая задаёт массив
