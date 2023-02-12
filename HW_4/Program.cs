@@ -3,7 +3,7 @@
     int result = 1;
     for (int i = 1; i <= NumB; i++)
     {
-        result *= NumB;
+        result *= NumA;
     }
     return result;
 }
