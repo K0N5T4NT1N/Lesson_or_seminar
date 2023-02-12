@@ -18,6 +18,16 @@ int SumN(int NumN)
     return result;
 }
 
+int[] randomArray(int length, int minValue, int maxValue)
+{
+    int[] result = new int[length];
+    for (int i = 0; i < length; i++)
+    {
+        result[i] = new Random().Next(minValue, maxValue);
+    }
+    return result;
+}
+
 
 /* Задача 25: Напишите цикл, который принимает на вход 
 два числа (A и B) и возводит число A в натуральную степень B.
@@ -64,3 +74,18 @@ Console.ReadKey();
 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 6, 1, 33 -> [6, 1, 33]
 */
+
+Console.Clear();
+Console.WriteLine("Задача 29: генерация массива из N элементов");
+Console.WriteLine("Введите размер массива: ");
+int length = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Введите минимальное значение массива: ");
+int minValue = int.Parse(Console.ReadLine());
+
+Console.WriteLine("Введите максимальное значение массива: ");
+int maxValue = int.Parse(Console.ReadLine());
+
+int[] array = randomArray(length, minValue, maxValue);
+Console.Write($"[{String.Join(",", array)}]");
+Console.ReadKey();
