@@ -1,4 +1,20 @@
-﻿/*
+﻿int[] GenerateArray(int Length, int minValue, int maxValue)
+{
+    int[] array = new int[Length];
+    Random random = new Random();
+    for (int i = 0; i < Length; i++)
+    {
+        array[i] = random.Next(minValue, maxValue + 1);
+    }
+    return array;
+}
+
+
+
+
+#nullable disable
+
+/*
 Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
 Напишите программу, которая покажет количество чётных чисел в массиве.
 
