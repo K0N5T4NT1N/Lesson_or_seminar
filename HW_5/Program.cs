@@ -1,18 +1,45 @@
-﻿int[] GenerateArray(int Length, int minValue, int maxValue)
+﻿#nullable disable
+int InputUser(string message)
 {
-    int[] array = new int[Length];
+    Console.WriteLine(message);
+    string ReadVoid =  Console.ReadLine();
+    int result = int.Parse(ReadVoid);
+    return result;    
+}
+
+int[] GenerateArray(int length, int minValue, int maxValue)
+{
+    int[] array = new int[length];
     Random random = new Random();
-    for (int i = 0; i < Length; i++)
+    for (int i = 0; i < length; i++)
     {
         array[i] = random.Next(minValue, maxValue + 1);
     }
     return array;
 }
 
+void OutputArray (int[] array)
+{
+    Console.Write("[");
+    for (var i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"{array[i]}, ");      
+    }
+    Console.Write($"{array[array.Length - 1]}");
+    Console.Write("]");
+}
 
+int CountHonest(int[] array)
+{
+    int count = 0;
+    for (var i = 0; i < array.Length; i++)
+    {
+        if (array[i] % 2 == 0) count++;
+    }
+    return count;
+}
+//https://learn.microsoft.com/ru-ru/dotnet/api/system.string.split?view=net-7.0
 
-
-#nullable disable
 
 /*
 Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
@@ -20,6 +47,18 @@
 
 [345, 897, 568, 234] -> 2
 */
+
+Console.Write("Длинна массива: "); // не может быть равной нулю, отрицательной и дробной || (length % 10) > 0
+int length; 
+if (!int.TryParse(Console.ReadLine(), out length) || length <= 0)
+{
+  Console.WriteLine("Некорректный ввод");
+  return;
+}
+int min = 100; //InputUser("Начальное значение массива: ");
+int max = 999; //InputUser("Конечное значение массива: ");
+int[] array = GenerateArray(length, min, max);
+OutputArray(array); Console.Write($" -> {CountHonest(array)}");
 
 /*
 Задача 36: Задайте одномерный массив, заполненный случайными числами. 

@@ -17,6 +17,7 @@ if (!int.TryParse(Console.ReadLine(), out num))
   return;
 }
 
+
 int result = (num / 10) % 10;
 
 if (num / 100 < 1 || num / 100 > 10) //проверка на трехзначное положительное число 
