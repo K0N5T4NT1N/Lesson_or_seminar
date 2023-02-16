@@ -1,6 +1,6 @@
 ﻿#nullable disable
 //https://learn.microsoft.com/ru-ru/dotnet/api/system.string.split?view=net-7.0
-//методы:
+//методы начало
 int InputUser(string message)
 {
     Console.WriteLine(message);
@@ -75,7 +75,7 @@ double DifferenceMinMax(double[] array)
     }
     return max - min;
 }
-
+//методы конец
 
 /*
 Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. 
