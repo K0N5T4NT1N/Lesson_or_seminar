@@ -51,7 +51,30 @@ int CountOddIndex (int[] array)
     return sum;
 }
 
+double[] RandomDoubleArray(int length, int minValue, int maxValue)
+{ 
+    double[] doubles = new double[length];
+    var random = new Random();
 
+    for (int i = 0; i < length; i++)
+    {
+        doubles[i] = Convert.ToDouble(random.Next(-100, 100)/10.0);
+    }
+    return doubles;
+}
+
+double DifferenceMinMax(double[] array)  
+{
+    double min = array[0];
+    double max = array[0];
+
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] < min) min = array[i];
+        if (array[i] > max) max = array[i];
+    }
+    return max - min;
+}
 
 
 /*
@@ -63,7 +86,7 @@ int CountOddIndex (int[] array)
 
 //добавить кейс
 Console.Clear();
-Console.WriteLine("Задача 38: подсчет количества чётных чисел в массиве");
+Console.WriteLine("Задача 34: подсчет количества чётных чисел в массиве");
 Console.Write("Длинна массива: "); // не может быть равной нулю, отрицательной и дробной || (length % 10) > 0
 int length; 
 if (!int.TryParse(Console.ReadLine(), out length) || length <= 0)
@@ -87,7 +110,7 @@ Console.ReadKey();
 
 //добавить кейс
 Console.Clear();
-Console.WriteLine("Задача 38: вычисление суммы элементов в нечётных индексах");
+Console.WriteLine("Задача 36: вычисление суммы элементов в нечётных индексах");
 Console.Write("Длинна массива: "); // не может быть равной нулю, отрицательной и дробной || (length % 10) > 0
 int length2;
 if (!int.TryParse(Console.ReadLine(), out length2) || length2 <= 0)
@@ -107,3 +130,20 @@ Console.ReadKey();
 
 [3 7 22 2 78] -> 76
 */
+//добавить кейс
+Console.Clear();
+Console.WriteLine("Задача 38: вычисление разницы между максимальным и минимальным элементами");
+Console.Write("Длинна массива: "); // не может быть равной нулю, отрицательной и дробной || (length % 10) > 0
+int length3;
+if (!int.TryParse(Console.ReadLine(), out length3) || length3 <= 0)
+{
+  Console.WriteLine("Некорректный ввод");
+  return;
+}
+min = InputUser("Начальное значение массива: ");
+max = InputUser("Конечное значение массива: ");
+double[] Darray = RandomDoubleArray(length3, min, max);
+Console.Write(String.Join(" ", Darray));
+Console.Write($"-> {DifferenceMinMax(Darray)}");
+Console.WriteLine("\nДля продолжения нажмите любую клавишу..." );
+Console.ReadKey();
