@@ -1,4 +1,6 @@
 ﻿#nullable disable
+//https://learn.microsoft.com/ru-ru/dotnet/api/system.string.split?view=net-7.0
+//методы:
 int InputUser(string message)
 {
     Console.WriteLine(message);
@@ -29,7 +31,7 @@ void OutputArray (int[] array)
     Console.Write("]");
 }
 
-int CountHonest(int[] array)
+int CountEvenNum(int[] array)
 {
     int count = 0;
     for (var i = 0; i < array.Length; i++)
@@ -38,7 +40,18 @@ int CountHonest(int[] array)
     }
     return count;
 }
-//https://learn.microsoft.com/ru-ru/dotnet/api/system.string.split?view=net-7.0
+
+int CountOddIndex (int[] array)
+{
+    int sum = 0;
+    for(int i = 1; i < array.Length; i=i+2)
+    {
+        sum = sum + array[i];
+    }
+    return sum;
+}
+
+
 
 
 /*
@@ -48,6 +61,9 @@ int CountHonest(int[] array)
 [345, 897, 568, 234] -> 2
 */
 
+//добавить кейс
+Console.Clear();
+Console.WriteLine("Задача 38: подсчет количества чётных чисел в массиве");
 Console.Write("Длинна массива: "); // не может быть равной нулю, отрицательной и дробной || (length % 10) > 0
 int length; 
 if (!int.TryParse(Console.ReadLine(), out length) || length <= 0)
@@ -58,8 +74,9 @@ if (!int.TryParse(Console.ReadLine(), out length) || length <= 0)
 int min = 100; //InputUser("Начальное значение массива: ");
 int max = 999; //InputUser("Конечное значение массива: ");
 int[] array = GenerateArray(length, min, max);
-OutputArray(array); Console.Write($" -> {CountHonest(array)}");
-
+OutputArray(array); Console.Write($" -> {CountEvenNum(array)}");
+Console.WriteLine("\nДля продолжения нажмите любую клавишу..." );
+Console.ReadKey();
 /*
 Задача 36: Задайте одномерный массив, заполненный случайными числами. 
 Найдите сумму элементов, стоящих на нечётных позициях.
@@ -68,7 +85,22 @@ OutputArray(array); Console.Write($" -> {CountHonest(array)}");
 [-4, -6, 89, 6] -> 0
 */
 
-
+//добавить кейс
+Console.Clear();
+Console.WriteLine("Задача 38: вычисление суммы элементов в нечётных индексах");
+Console.Write("Длинна массива: "); // не может быть равной нулю, отрицательной и дробной || (length % 10) > 0
+int length2;
+if (!int.TryParse(Console.ReadLine(), out length2) || length2 <= 0)
+{
+  Console.WriteLine("Некорректный ввод");
+  return;
+}
+min = InputUser("Начальное значение массива: ");
+max = InputUser("Конечное значение массива: ");
+array = GenerateArray(length2, min, max);
+OutputArray(array); Console.Write($" -> {CountOddIndex(array)}");
+Console.WriteLine("\nДля продолжения нажмите любую клавишу..." );
+Console.ReadKey();
 /*
 Задача 38: Задайте массив вещественных чисел. 
 Найдите разницу между максимальным и минимальным элементов массива.
