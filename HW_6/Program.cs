@@ -4,7 +4,7 @@ int InputUser(string message)
 {
     Console.Write(message);
     string ReadVoid = Console.ReadLine();
-    int result = int.Parse(ReadVoid);
+    var result = int.Parse(ReadVoid);
     return result;
 }
 
@@ -22,20 +22,7 @@ int InputUserValidationVoid(string message)
     
 }   
 */
-/*
-int[] FillingManualArray(string stringArray)
-{
-    string[] nums = stringArray.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-    int[] res = new int[nums.Length];
-
-    for (int i = 0; i < nums.Length; i++)
-    {
-        res[i] = int.Parse(nums[i]);
-    }
-    return res;
-}
-*/
 
 void OutputArray(int[] array)
 {
@@ -60,9 +47,9 @@ int CountIndexPositiv(int[] array)
 
 void Fibonacci(int numberN)
 {
-    int temp = 0;
-    int fibonacci1 = 1;
-    int fibonacci2 = 1;
+    long temp = 0;
+    long fibonacci1 = 1;
+    long fibonacci2 = 1;
     if (numberN == 0)
     {
         Console.Write(temp);
@@ -159,11 +146,28 @@ void HomeWork()
 
             case 43:
                 Console.Clear();
-                /*
-                array43 = GetArray(6, 0, 999);
-                OutputArray(array43); Console.Write($" -> {CountOddIndex(array)}");
+                Console.WriteLine("введите значение b1");
+                double b1 = int.Parse(Console.ReadLine());
+                Console.WriteLine("введите число k1");
+                double k1 = int.Parse(Console.ReadLine());
+                Console.WriteLine("введите значение b2");
+                double b2 = int.Parse(Console.ReadLine());
+                Console.WriteLine("введите число k2");
+                double k2 = int.Parse(Console.ReadLine());
+                double x = (b2 - b1) / (k1 - k2);
+                double y = (k2 * x + b2);
+
+                if (y != k1 * x + b1 || k1 - k2 == 0)
+                {
+                    Console.WriteLine("Решений нет!");
+                }
+                else
+                {
+
+                    Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
+
+                }
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
-                */
                 Console.ReadKey();
                 break;
 
