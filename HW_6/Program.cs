@@ -8,6 +8,13 @@ int InputUser(string message)
     return result;
 }
 
+double InputUserDouble(string message)
+{
+    Console.Write(message);
+    string ReadVoid = Console.ReadLine();
+    var result = Convert.ToDouble(ReadVoid);
+    return result;
+}
 /* допилить, как будет время.
 int InputUserValidationVoid(string message)
 {
@@ -74,7 +81,7 @@ void Fibonacci(int numberN)
         }
     }
 }
-
+//методы конец
 
 
 /*
@@ -146,14 +153,14 @@ void HomeWork()
 
             case 43:
                 Console.Clear();
-                Console.WriteLine("введите значение b1");
-                double b1 = int.Parse(Console.ReadLine());
-                Console.WriteLine("введите число k1");
-                double k1 = int.Parse(Console.ReadLine());
-                Console.WriteLine("введите значение b2");
-                double b2 = int.Parse(Console.ReadLine());
-                Console.WriteLine("введите число k2");
-                double k2 = int.Parse(Console.ReadLine());
+                double b1 = InputUserDouble("введите значение b1 = ");
+
+                double k1 = InputUserDouble("введите число k1 = ");
+
+                double b2 = InputUserDouble("введите значение b2 = ");
+
+                double k2 = InputUserDouble("введите число k2 = ");
+                
                 double x = (b2 - b1) / (k1 - k2);
                 double y = (k2 * x + b2);
 
@@ -163,9 +170,7 @@ void HomeWork()
                 }
                 else
                 {
-
-                    Console.WriteLine($"две прямые пересекутся в точке с координатами X: {x}, Y: {y}");
-
+                    Console.WriteLine($"две прямые пересекутся в точке с координатами ( X: {x}, Y: {y} )");
                 }
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
