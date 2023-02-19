@@ -65,30 +65,30 @@ void Fibonacci(int numberN)
     int fibonacci2 = 1;
     if (numberN == 0)
     {
-        Console.WriteLine(temp);
+        Console.Write(temp);
     }
     if (numberN == 1)
     {
-        Console.WriteLine(fibonacci1);
+        Console.Write($"{temp} {fibonacci1}");
     }
     if (numberN == 2)
     {
-        Console.WriteLine(fibonacci2);
+        Console.Write($"{temp} {fibonacci1} {fibonacci2}");
     }
     else
     {
-        Console.WriteLine($"{temp} {fibonacci1} {fibonacci2}");
+        Console.Write($"{temp} {fibonacci1} {fibonacci2}");
         for (var i = 2; i < numberN; i++)
         {
-        temp = fibonacci1 + fibonacci2;
-        fibonacci2 = fibonacci1;
-        fibonacci1 = temp;
-        Console.WriteLine(" ", fibonacci1);
+            temp = fibonacci1 + fibonacci2;
+            fibonacci2 = fibonacci1;
+            fibonacci1 = temp;
+            Console.Write($" {fibonacci1}");
         }
     }
 }
 
-    
+
 
 /*
 Задача 41: Пользователь вводит с клавиатуры M чисел. 
@@ -125,13 +125,11 @@ void HomeWork()
 {
     while (true)
     {
-        Console.ReadLine();
         Console.Clear();
-
-        Console.WriteLine("Задача 41: Пользователь вводит с клавиатуры M чисел. \n Посчитайте, сколько чисел больше 0 ввёл пользователь.");
-        Console.WriteLine("Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, \n заданных уравнениями y = k1 * x + b1, y = k2 * x + b2");
-        Console.WriteLine("Задача 44: Выведите первые N чисел Фибоначчи. \n Первые два числа Фибоначчи: 0 и 1");
-        Console.WriteLine("Для выхода введите: 0");
+        Console.WriteLine("Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.\n");
+        Console.WriteLine("Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2 \n");
+        Console.WriteLine("Задача 44: Выведите первые N чисел Фибоначчи.Первые два числа Фибоначчи: 0 и 1 \n");
+        Console.WriteLine("Для выхода введите: 0 \n");
 
         int numTask = InputUser("Введите номер задачи: ");
 
@@ -151,10 +149,12 @@ void HomeWork()
                 int[] array41 = new int[elementsCount];
                 for (var i = 0; i < elementsCount; i++)
                 {
-                    Console.WriteLine($"\nВведите элемент массива с индексом {i}: ");
+                    Console.Write($"\nВведите элемент массива с индексом {i}: ");
                     array41[i] = int.Parse(Console.ReadLine());
                 }
-                OutputArray(array41); Console.WriteLine($"Количество чисел больше нуля -> {CountIndexPositiv(array41)}");
+                OutputArray(array41); Console.WriteLine($" Количество чисел больше нуля -> {CountIndexPositiv(array41)}");
+                Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+                Console.ReadKey();
                 break;
 
             case 43:
@@ -169,7 +169,8 @@ void HomeWork()
 
             case 44:
                 int fibonacciN = InputUser("До какого числа показать ряд?: ");
-                Fibonacci(fibonacciN);
+                Fibonacci(fibonacciN); Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+                Console.ReadKey();
                 break;
 
             default: Console.WriteLine("Такой задачи не существует"); break;
