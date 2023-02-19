@@ -1,56 +1,95 @@
-﻿//методы начало
+﻿#nullable disable
+//методы начало
 int InputUser(string message)
 {
     Console.Write(message);
     string ReadVoid = Console.ReadLine();
     int result = int.Parse(ReadVoid);
-    return result;    
+    return result;
 }
 
+/* допилить, как будет время.
 int InputUserValidationVoid(string message)
 {
     Console.Write(message);
     string ReadVoid = Console.ReadLine();
-    int result;
+    int result = int.Parse(ReadVoid);
     if (!int.TryParse(Console.ReadLine(), out result) || result <= 0)
     {
-        Console.WriteLine("Некорректный ввод"); 
+        Console.WriteLine("Некорректный ввод");
         return;
     }
+    
 }   
-
-int[] FillingManualArray(int length, int Value)
+*/
+/*
+int[] FillingManualArray(string stringArray)
 {
-    int[] array = new int[length];
-    Random random = new Random();
-    for (int i = 0; i < length; i++)
-    {
-        array[i] = random.Next(minValue, maxValue + 1);
-    }
-    return array;
-}
+    string[] nums = stringArray.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-int[] GenerateManualArray(int length, int Value)
-{
-    int[] array = new int[length];
-    Random random = new Random();
-    for (int i = 0; i < length; i++)
-    {
-        array[i] = random.Next(minValue, maxValue + 1);
-    }
-    return array;
-}
+    int[] res = new int[nums.Length];
 
-void OutputArray (int[] array)
+    for (int i = 0; i < nums.Length; i++)
+    {
+        res[i] = int.Parse(nums[i]);
+    }
+    return res;
+}
+*/
+
+void OutputArray(int[] array)
 {
     Console.Write("[");
     for (var i = 0; i < array.Length - 1; i++)
     {
-        Console.Write($"{array[i]}, ");      
+        Console.Write($"{array[i]}, ");
     }
     Console.Write($"{array[array.Length - 1]}");
     Console.Write("]");
 }
+
+int CountIndexPositiv(int[] array)
+{
+    int count = 0;
+    for (var i = 0; i < array.Length; i++)
+    {
+        if (array[i] > 0) count++;
+    }
+    return count;
+}
+
+void Fibonacci(int numberN)
+{
+    int temp = 0;
+    int fibonacci1 = 1;
+    int fibonacci2 = 1;
+    if (numberN == 0)
+    {
+        Console.WriteLine(temp);
+    }
+    if (numberN == 1)
+    {
+        Console.WriteLine(fibonacci1);
+    }
+    if (numberN == 2)
+    {
+        Console.WriteLine(fibonacci2);
+    }
+    else
+    {
+        Console.WriteLine($"{temp} {fibonacci1} {fibonacci2}");
+        for (var i = 2; i < numberN; i++)
+        {
+        temp = fibonacci1 + fibonacci2;
+        fibonacci2 = fibonacci1;
+        fibonacci1 = temp;
+        Console.WriteLine(" ", fibonacci1);
+        }
+    }
+}
+
+    
+
 /*
 Задача 41: Пользователь вводит с клавиатуры M чисел. 
 Посчитайте, сколько чисел больше 0 ввёл пользователь.
@@ -78,7 +117,11 @@ b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 --> 0 1 1 2 3 5 8
 */
 
-void Start()
+Console.Clear();
+
+HomeWork();
+
+void HomeWork()
 {
     while (true)
     {
@@ -94,29 +137,41 @@ void Start()
 
         switch (numTask)
         {
-            case 0: return; break;
+            case 0: return;
 
             case 41:
                 Console.Clear();
-                int elementsCount = InputUserValidationVoid("Какое количество чисел проверить? ");
+                Console.Write("Какое количество чисел проверить? ");
+                int elementsCount;
+                if (!int.TryParse(Console.ReadLine(), out elementsCount) || elementsCount <= 0)
+                {
+                    Console.WriteLine("Некорректный ввод");
+                    return;
+                }
                 int[] array41 = new int[elementsCount];
-                Console.WriteLine(String.Join(" ", array41));
-                Console.WriteLine($"Количество чисел больше нуля -> {GetEvenCount(startArray)}");
+                for (var i = 0; i < elementsCount; i++)
+                {
+                    Console.WriteLine($"\nВведите элемент массива с индексом {i}: ");
+                    array41[i] = int.Parse(Console.ReadLine());
+                }
+                OutputArray(array41); Console.WriteLine($"Количество чисел больше нуля -> {CountIndexPositiv(array41)}");
                 break;
+
             case 43:
                 Console.Clear();
-                startArray = GetArray(6, 0, 999);
-                Console.WriteLine(String.Join(" ", startArray));
-                Console.WriteLine($"Сумма элементов на нечетных позициях = {GetSumOdd(startArray)}");
+                /*
+                array43 = GetArray(6, 0, 999);
+                OutputArray(array43); Console.Write($" -> {CountOddIndex(array)}");
+                Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+                */
+                Console.ReadKey();
                 break;
 
             case 44:
-                Console.Write("Введите элементы массива через пробел: ");
-                string elements = Console.ReadLine();
-                int[] baseArray = GetArrayFromString(elements);
-                Console.WriteLine(String.Join(" ", ResultArray(baseArray)));
+                int fibonacciN = InputUser("До какого числа показать ряд?: ");
+                Fibonacci(fibonacciN);
                 break;
-            
+
             default: Console.WriteLine("Такой задачи не существует"); break;
         }
     }
