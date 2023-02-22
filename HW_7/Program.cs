@@ -48,7 +48,20 @@ double InputUserDouble(string message)
     return result;
 }
 
-int[,] GetMatrix(int rows, int columns, int min, int max)
+int[,] GetMatrix(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными целыми числами.
+{
+    int[,] matrix = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int l = 0; l < columns; l++)
+        {
+            matrix[i, l] = new Random().Next(min, max + 1);
+        }
+    }
+    return matrix;
+}
+
+int[,] GetMatrixDouble(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными вещественными числами.
 {
     int[,] matrix = new int[rows, columns];
     for (int i = 0; i < rows; i++)
