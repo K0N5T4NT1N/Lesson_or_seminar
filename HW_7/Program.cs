@@ -63,7 +63,7 @@ int[,] GetMatrix(int rows, int columns, int min, int max) //двумерный �
 
 double[,] GetMatrixDouble(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными вещественными числами.
 {
-    double[,] matrix = new int[rows, columns];
+    double[,] matrix = new double[rows, columns];
     for (int i = 0; i < rows; i++)
     {
         for (int l = 0; l < columns; l++)
@@ -108,54 +108,31 @@ void HomeWork()
         {
             case 0: return;
 
-            case 41:
+            case 47:
                 Console.Clear();
-                Console.Write("Какое количество чисел проверить? ");
-                int elementsCount;
-                if (!int.TryParse(Console.ReadLine(), out elementsCount) || elementsCount <= 0)
-                {
-                    Console.WriteLine("Некорректный ввод");
-                    return;
-                }
-                int[] array41 = new int[elementsCount];
-                for (var i = 0; i < elementsCount; i++)
-                {
-                    Console.Write($"\nВведите элемент массива с индексом {i}: ");
-                    array41[i] = int.Parse(Console.ReadLine());
-                }
-                OutputArray(array41); Console.WriteLine($" Количество чисел больше нуля -> {CountIndexPositiv(array41)}");
+                
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
-            case 43:
+            case 50:
                 Console.Clear();
-                double b1 = InputUserDouble("введите значение b1 = ");
-
-                double k1 = InputUserDouble("введите число k1 = ");
-
-                double b2 = InputUserDouble("введите значение b2 = ");
-
-                double k2 = InputUserDouble("введите число k2 = ");
-
-                double x = (b2 - b1) / (k1 - k2);
-                double y = (k2 * x + b2);
-
-                if (y != k1 * x + b1 || k1 - k2 == 0)
-                {
-                    Console.WriteLine("Решений нет!");
-                }
-                else
-                {
-                    Console.WriteLine($"две прямые пересекутся в точке с координатами ( X: {x}, Y: {y} )");
-                }
+                
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
-            case 44:
+            case 52:
                 int fibonacciN = InputUser("До какого числа показать ряд?: ");
-                Fibonacci(fibonacciN); Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+                //Fibonacci(fibonacciN); 
+                Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+                Console.ReadKey();
+                break;
+
+            case 62:
+                int nuN = InputUser("До какого числа показать ряд?: ");
+                
+                Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
