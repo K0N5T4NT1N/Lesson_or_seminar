@@ -61,14 +61,14 @@ int[,] GetMatrix(int rows, int columns, int min, int max) //двумерный �
     return matrix;
 }
 
-int[,] GetMatrixDouble(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными вещественными числами.
+double[,] GetMatrixDouble(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными вещественными числами.
 {
-    int[,] matrix = new int[rows, columns];
+    double[,] matrix = new int[rows, columns];
     for (int i = 0; i < rows; i++)
     {
         for (int l = 0; l < columns; l++)
         {
-            matrix[i, l] = new Random().Next(min, max + 1);
+            matrix[i, l] = new Random().Next(min, max + 1) + new Random().NextDouble();
         }
     }
     return matrix;
