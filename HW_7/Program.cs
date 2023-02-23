@@ -106,7 +106,7 @@ void FindValue(int[,] matrix, int i, int l)
     }
     else
     {
-        Console.WriteLine($"{matrix[i,l]} -> такого числа в массиве нет");
+        Console.WriteLine($"{i}{l} -> такого числа в массиве нет");
     }
 }
 
@@ -170,7 +170,7 @@ void HomeWork()
 
             case 50:
                 Console.Clear();
-                int [,] matrix50 = GetMatrix(12, 12, -20, 20);
+                int [,] matrix50 = GetMatrix(4, 4, 0, 10);
                 int indexRow = InputUser("Введите индекс строки в массиве: ");
                 int indexColumn = InputUser("Введите индекс столбца в массиве: ");
                 Print(matrix50); FindValue(matrix50, indexRow,indexColumn);
