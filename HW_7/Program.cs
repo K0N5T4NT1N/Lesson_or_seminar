@@ -120,7 +120,6 @@ double[] AverageArray(int[,] matrix)
 
 int[,] SpiralArray(int perimetr, int filling)
 {
-
     int rows = perimetr;
     int columns = perimetr;
     int i = 0;

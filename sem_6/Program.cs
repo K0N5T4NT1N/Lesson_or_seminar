@@ -1,4 +1,30 @@
-﻿// Задача 46: Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
+﻿/*
+void FindValueInMatrix(int[,] matrix, int desired)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int l = 0; l < matrix.GetLength(1); l++)
+        {
+            if(matrix[i, l] == desired)
+            {
+                Console.WriteLine($"{desired} -> число найдено!");
+                break;
+            }  
+            else
+            {
+                Console.WriteLine($"{desired} -> такого числа в массиве нет");
+            }
+                            
+        }
+        
+    }
+    
+}
+*/
+
+
+
+// Задача 46: Задайте двумерный массив размером m×n, заполненный случайными целыми числами.
 // 
 
 int numRows = SetNumber("Rows");
