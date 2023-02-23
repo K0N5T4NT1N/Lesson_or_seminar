@@ -85,6 +85,18 @@ void Print(int[,] matrix)
         Console.WriteLine();
     }
 }
+
+void PrintDouble(double[,] matrix)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int l = 0; l < matrix.GetLength(1); l++)
+        {
+            Console.Write(matrix[i, l] + " ");
+        }
+        Console.WriteLine();
+    }
+}
 //методы конец
 
 Console.Clear();
@@ -99,7 +111,7 @@ void HomeWork()
         Console.WriteLine("Задача 47: Создание двумерного массива размером m×n, заполненного случайными вещественными числами.\n");
         Console.WriteLine("Задача 50: Проверка позиции заданного элемента в двумерном массиве. (Возвращает значение этого элемента либо указывает, что такого элемента нет).\n");
         Console.WriteLine("Задача 52: Нахождение среднго арифметического элементов в каждом столбце заданного массива. \n");
-        Console.WriteLine("Задача 62: Заполнение спирально массива 4 на 4. \n");
+        Console.WriteLine("Задача 62: Спиральное заполнение  массива 4 на 4. \n");
         Console.WriteLine("Для выхода введите: 0 \n");
 
         int numTask = InputUser("Введите номер задачи: ");
@@ -110,7 +122,12 @@ void HomeWork()
 
             case 47:
                 Console.Clear();
-                
+                int rows = InputUser("Ввндите количество строк (m): ");
+                int columns = InputUser("Введите количество столбцов (n): ");
+                int min = InputUser("Введите минимальное значение: ");
+                int max = InputUser("Введите максимальное значение: ");
+                double [,] matrixDouble = GetMatrixDouble(rows, columns, min, max);
+                PrintDouble(matrixDouble);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
