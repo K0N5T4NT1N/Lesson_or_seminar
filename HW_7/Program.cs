@@ -98,7 +98,20 @@ void PrintDouble(double[,] matrix)
     }
 }
 
-void FindValue(int[,] matrix, int desired)
+void FindValue(int[,] matrix, int i, int l)
+{
+    if (i < matrix.GetLength(0) && l < matrix.GetLength(1))
+    {
+        Console.WriteLine($"{matrix[i,l]} -> число найдено!");
+    }
+    else
+    {
+        Console.WriteLine($"{matrix[i,l]} -> такого числа в массиве нет");
+    }
+}
+
+/*
+void FindValueInMatrix(int[,] matrix, int desired)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
@@ -119,7 +132,7 @@ void FindValue(int[,] matrix, int desired)
     }
     
 }
-
+*/
 //методы конец
 
 Console.Clear();
@@ -157,13 +170,10 @@ void HomeWork()
 
             case 50:
                 Console.Clear();
-                // rows = InputUser("Ввндите количество строк (m): ");
-                // columns = InputUser("Введите количество столбцов (n): ");
-                // min = InputUser("Введите минимальное значение: ");
-                // max = InputUser("Введите максимальное значение: ");
-                int [,] matrix50 = GetMatrix(8, 8, -10, 10);
-                int desiredValue = InputUser("Ввндите искомое значение: ");
-                Print(matrix50); FindValue(matrix50, desiredValue);
+                int [,] matrix50 = GetMatrix(12, 12, -20, 20);
+                int indexRow = InputUser("Введите индекс строки в массиве: ");
+                int indexColumn = InputUser("Введите индекс столбца в массиве: ");
+                Print(matrix50); FindValue(matrix50, indexRow,indexColumn);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
