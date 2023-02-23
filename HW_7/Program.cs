@@ -128,7 +128,7 @@ int[,] SpiralArray(int perimetr, int filling)
     int[,] matrix = new int[rows, columns];
     while (filling <= matrix.GetLength(0) * matrix.GetLength(1))
     {
-        matrix[i, j] = filling;
+        matrix[i, j] = filling; 
         if (i <= j + 1 && i + j < matrix.GetLength(1) - 1)
             j++;
         else if (i < j && i + j >= matrix.GetLength(0) - 1)
