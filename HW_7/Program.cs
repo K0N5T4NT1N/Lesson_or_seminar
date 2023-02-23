@@ -109,11 +109,15 @@ void FindValue(int[,] matrix, int desired)
                 Console.WriteLine($"{desired} -> число найдено!");
                 break;
             }  
-                             
+            else
+            {
+                Console.WriteLine($"{desired} -> такого числа в массиве нет");
+            }
+                            
         }
-        Console.WriteLine();
+        
     }
-    Console.WriteLine($"{desired} -> такого числа в массиве нет");
+    
 }
 
 //методы конец
