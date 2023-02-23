@@ -107,10 +107,11 @@ void FindValue(int[,] matrix, int desired)
             if(matrix[i, l] == desired)
             {
                 Console.WriteLine($"{desired} -> число найдено!");
-                
+                break;
             }  
-            break;                 
-        }        
+                             
+        }
+        Console.WriteLine();
     }
     Console.WriteLine($"{desired} -> такого числа в массиве нет");
 }
