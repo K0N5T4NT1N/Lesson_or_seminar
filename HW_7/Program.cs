@@ -40,13 +40,6 @@ int InputUser(string message)
     return result;
 }
 
-double InputUserDouble(string message)
-{
-    Console.Write(message);
-    string ReadVoid = Console.ReadLine();
-    var result = Convert.ToDouble(ReadVoid);
-    return result;
-}
 
 int[,] GetMatrix(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными целыми числами.
 {
@@ -92,7 +85,7 @@ void PrintDouble(double[,] matrix)
     {
         for (int l = 0; l < matrix.GetLength(1); l++)
         {
-            Console.Write($"{Math.Round(matrix[i, l], 2)} ");            
+            Console.Write($"{Math.Round(matrix[i, l], 2)} ");
         }
         Console.WriteLine();
     }
@@ -102,7 +95,7 @@ void FindValue(int[,] matrix, int i, int l)
 {
     if (i < matrix.GetLength(0) && l < matrix.GetLength(1))
     {
-        Console.WriteLine($"{matrix[i,l]} -> число найдено!");
+        Console.WriteLine($"{matrix[i, l]} -> число найдено!");
     }
     else
     {
@@ -110,29 +103,22 @@ void FindValue(int[,] matrix, int i, int l)
     }
 }
 
-/*
-void FindValueInMatrix(int[,] matrix, int desired)
+double[] AverageArray(int[,] matrix)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    double[] result = new double[matrix.GetLength(1)];
+    for (int i = 0; i < matrix.GetLength(1); i++)
     {
-        for (int l = 0; l < matrix.GetLength(1); l++)
+        double temp = 0;
+        for (int l = 0; l < matrix.GetLength(0); l++)
         {
-            if(matrix[i, l] == desired)
-            {
-                Console.WriteLine($"{desired} -> число найдено!");
-                break;
-            }  
-            else
-            {
-                Console.WriteLine($"{desired} -> такого числа в массиве нет");
-            }
-                            
+            temp += matrix[l, i];
         }
-        
+        result[i] = temp / matrix.GetLength(0);
     }
-    
+    return result;
 }
-*/
+
+
 //методы конец
 
 Console.Clear();
@@ -158,11 +144,11 @@ void HomeWork()
 
             case 47:
                 Console.Clear();
-                int rows = InputUser("Ввндите количество строк (m): ");
+                int rows = InputUser("Введите количество строк (m): ");
                 int columns = InputUser("Введите количество столбцов (n): ");
                 int min = InputUser("Введите минимальное значение: ");
                 int max = InputUser("Введите максимальное значение: ");
-                double [,] matrixDouble = GetMatrixDouble(rows, columns, min, max);
+                double[,] matrixDouble = GetMatrixDouble(rows, columns, min, max);
                 PrintDouble(matrixDouble);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
@@ -170,24 +156,30 @@ void HomeWork()
 
             case 50:
                 Console.Clear();
-                int [,] matrix50 = GetMatrix(12, 12, 0, 20);
+                int[,] matrix50 = GetMatrix(12, 12, 0, 20);
                 int indexRow = InputUser("Введите индекс строки в массиве: ");
                 int indexColumn = InputUser("Введите индекс столбца в массиве: ");
-                Print(matrix50); FindValue(matrix50, indexRow,indexColumn);
+                Print(matrix50); FindValue(matrix50, indexRow, indexColumn);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
             case 52:
-                int fibonacciN = InputUser("До какого числа показать ряд?: ");
-                //Fibonacci(fibonacciN); 
+                Console.Clear();
+                rows = InputUser("Введите количество строк: ");
+                columns = InputUser("Введите количество столбцов: ");
+                min = InputUser("Введите минимальное значение: ");
+                max = InputUser("Введите максимальное значение: ");
+                int[,] matrix52 = GetMatrix(rows, columns, min, max); 
+                Print(matrix52); double[] outputArray = AverageArray(matrix52);
+                Console.WriteLine($"Среднее арифметическое каждого столбца: {String.Join("; ",outputArray)}");
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
             case 62:
                 int nuN = InputUser("До какого числа показать ряд?: ");
-                
+
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
