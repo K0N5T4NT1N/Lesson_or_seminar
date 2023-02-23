@@ -118,6 +118,29 @@ double[] AverageArray(int[,] matrix)
     return result;
 }
 
+int[,] SpiralArray(int perimetr, int filling)
+{
+
+    int rows = perimetr;
+    int columns = perimetr;
+    int i = 0;
+    int j = 0;
+    int[,] matrix = new int[rows, columns];
+    while (filling <= matrix.GetLength(0) * matrix.GetLength(1))
+    {
+        matrix[i, j] = filling;
+        if (i <= j + 1 && i + j < matrix.GetLength(1) - 1)
+            j++;
+        else if (i < j && i + j >= matrix.GetLength(0) - 1)
+            i++;
+        else if (i >= j && i + j > matrix.GetLength(1) - 1)
+            j--;
+        else
+            i--;
+        filling++;
+    }
+    return matrix;
+}
 
 //методы конец
 
@@ -170,16 +193,17 @@ void HomeWork()
                 columns = InputUser("Введите количество столбцов: ");
                 min = InputUser("Введите минимальное значение: ");
                 max = InputUser("Введите максимальное значение: ");
-                int[,] matrix52 = GetMatrix(rows, columns, min, max); 
+                int[,] matrix52 = GetMatrix(rows, columns, min, max);
                 Print(matrix52); double[] outputArray = AverageArray(matrix52);
-                Console.WriteLine($"Среднее арифметическое каждого столбца: {String.Join("; ",outputArray)}");
+                Console.WriteLine($"Среднее арифметическое каждого столбца: {String.Join("; ", outputArray)}");
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
             case 62:
-                int nuN = InputUser("До какого числа показать ряд?: ");
-
+                int size = InputUser("Введите размер матрицы: ");
+                int count = InputUser("Введите начальное значение: ");
+                int[,] matrix62 = SpiralArray(size, count); Print(matrix62);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
