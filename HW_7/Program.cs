@@ -92,7 +92,7 @@ void PrintDouble(double[,] matrix)
     {
         for (int l = 0; l < matrix.GetLength(1); l++)
         {
-            Console.Write(matrix[i, l] + " ");
+            Console.Write($"{Math.Round(matrix[i, l], 2)} ");            
         }
         Console.WriteLine();
     }
