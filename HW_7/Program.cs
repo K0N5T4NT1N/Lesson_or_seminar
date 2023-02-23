@@ -97,6 +97,26 @@ void PrintDouble(double[,] matrix)
         Console.WriteLine();
     }
 }
+
+void FindValue(int[,] matrix, int desired)
+{
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int l = 0; l < matrix.GetLength(1); l++)
+        {
+            if(matrix[i, l] == desired)
+            {
+                Console.WriteLine($"{desired} -> число найдено!");
+                break;
+            }  
+            else
+            {
+                Console.WriteLine($"{desired} -> такого числа в массиве нет");
+            }         
+        }        
+    }
+}
+
 //методы конец
 
 Console.Clear();
@@ -134,7 +154,13 @@ void HomeWork()
 
             case 50:
                 Console.Clear();
-                
+                // rows = InputUser("Ввндите количество строк (m): ");
+                // columns = InputUser("Введите количество столбцов (n): ");
+                // min = InputUser("Введите минимальное значение: ");
+                // max = InputUser("Введите максимальное значение: ");
+                int [,] matrix50 = GetMatrix(8, 8, -10, 10);
+                int desiredValue = InputUser("Ввндите искомое значение: ");
+                Print(matrix50); FindValue(matrix50, desiredValue);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
