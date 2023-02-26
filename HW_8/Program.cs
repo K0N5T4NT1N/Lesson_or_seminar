@@ -168,7 +168,8 @@ void HomeWork()
                 int min = InputUser("Введите минимальное значение: ");
                 int max = InputUser("Введите максимальное значение: ");
                 int[,] matrix54 = GetMatrix(rows, columns, min, max);
-                Print(matrix54); DescendingSortOrder(matrix54); Print(matrix54);
+                Print(matrix54); System.Console.WriteLine();
+                DescendingSortOrder(matrix54); Print(matrix54);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
@@ -178,7 +179,7 @@ void HomeWork()
                 int[,] matrix50 = GetMatrix(12, 12, 0, 20);
                 int indexRow = InputUser("Введите индекс строки в массиве: ");
                 int indexColumn = InputUser("Введите индекс столбца в массиве: ");
-                Print(matrix50); FindValue(matrix50, indexRow, indexColumn);
+                Print(matrix50); 
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
@@ -199,7 +200,7 @@ void HomeWork()
             case 60:
                 int size = InputUser("Введите размер матрицы: ");
                 int count = InputUser("Введите начальное значение: ");
-                int[,] matrix62 = SpiralArray(size, count); Print(matrix62);
+                
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
