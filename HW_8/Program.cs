@@ -137,6 +137,76 @@ int[,] MultiplexMatrix(int[,] first, int[,] second)
     return multiMatrix;
 }
 
+void PutOrder(int[] Numbers)  //  Взят у Евгении
+{
+    int length = Numbers.Length;
+
+    for (int i = 0; i < length; i++)
+    {
+        Numbers[i] = i + 10;
+    }
+    return;
+}
+
+int[] Shuffle(int[] arr)  //  Взят у Евгении
+{
+    Random rand = new Random();
+
+    for (int i = arr.Length - 1; i >= 1; i--)
+    {
+        int j = rand.Next(i + 1);
+
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
+    return arr;
+}
+
+int[,,] Matrix3D(int valueX, int valueY, int valueZ)  //  Взят у Евгении
+{
+    int[,,] matrix = new int[valueX, valueY, valueZ];
+
+    if ((valueX * valueY * valueZ) > 90) Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 90");
+    int[] array = new int[90];
+    PutOrder(array);
+    Shuffle(array);
+
+    for (int i = 0; i < valueX * valueY * valueZ;)
+    {
+        for (int x = 0; x < valueX; x++)
+        {
+            for (int y = 0; y < valueY; y++)
+            {
+                for (int z = 0; z < valueZ; z++)
+                {
+                    matrix[x, y, z] = array[i];
+                    i++;
+                }
+
+            }
+        }
+    }
+    return matrix;
+}
+
+void PrintMatrix3D(int[,,] matrix)  //  Метод для вывода в консоль 3d матрицы
+{
+    for (int x = 0; x < matrix.GetLength(0); x++)
+    {
+        for (int y = 0; y < matrix.GetLength(1); y++)
+        {
+            for (int z = 0; z < matrix.GetLength(2); z++)
+            {
+                System.Console.Write($"{matrix[x, y, z]} ({x}, {y}, {z}) ");
+            }
+            System.Console.WriteLine();
+        }
+    }
+}
+
+
+
 //методы конец
 
 Console.Clear();
@@ -194,7 +264,7 @@ void HomeWork()
                 max = InputUser("Введите максимальное значение: ");
                 int[,] matrixFirst = GetMatrix(rows, columns, min, max);
                 int[,] matrixSecond = GetMatrix(columns, rows, min, max);
-                Print(matrixFirst); Console.WriteLine(); 
+                Print(matrixFirst); Console.WriteLine();
                 Print(matrixSecond); Console.WriteLine();
                 int[,] matrix58 = MultiplexMatrix(matrixFirst, matrixSecond);
                 Print(matrix58);
@@ -203,9 +273,12 @@ void HomeWork()
                 break;
 
             case 60:
-                int size = InputUser("Введите размер матрицы: ");
-                int count = InputUser("Введите начальное значение: ");
-
+                Console.Clear();
+                int sizeX = InputUser("Введите размер по оси X: ");
+                int sizeY = InputUser("Введите размер по оси Y: ");
+                int sizeZ = InputUser("Введите размер по оси Z: ");
+                int[,,] matrix60 = Matrix3D(sizeX, sizeY, sizeZ);
+                PrintMatrix3D(matrix60);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
