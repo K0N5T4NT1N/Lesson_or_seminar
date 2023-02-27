@@ -117,7 +117,7 @@ void MinSumInRows(int[,] matrix)
             indexMinSum = i + 1;
         }
     }
-    System.Console.WriteLine($"Cтрока с наименьшей суммой элементов -> {indexMinSum}");
+    Console.WriteLine($"Cтрока с наименьшей суммой элементов -> {indexMinSum}");
 }
 
 int[,] MultiplexMatrix(int[,] first, int[,] second)
@@ -137,50 +137,44 @@ int[,] MultiplexMatrix(int[,] first, int[,] second)
     return multiMatrix;
 }
 
-void PutOrder(int[] Numbers)  //  Взят у Евгении
+int[] GetShuffleArray()
 {
-    int length = Numbers.Length;
+    int[] array = new int[90];
 
-    for (int i = 0; i < length; i++)
+    for (int i = 0; i < array.Length; i++)
     {
-        Numbers[i] = i + 10;
+        array[i] = i + 10;
     }
-    return;
-}
 
-int[] Shuffle(int[] arr)  //  Взят у Евгении
-{
     Random rand = new Random();
 
-    for (int i = arr.Length - 1; i >= 1; i--)
+    for (int i = array.Length - 1; i >= 1; i--)
     {
-        int j = rand.Next(i + 1);
+        int k = rand.Next(i + 1);
 
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
+        int temp = array[k];
+        array[k] = array[i];
+        array[i] = temp;
     }
-    return arr;
+    return array;
 }
 
-int[,,] Matrix3D(int valueX, int valueY, int valueZ)  //  Взят у Евгении
+int[,,] Matrix3D(int valueX, int valueY, int valueZ, int[] fill)
 {
     int[,,] matrix = new int[valueX, valueY, valueZ];
 
-    if ((valueX * valueY * valueZ) > 90) Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 90");
-    int[] array = new int[90];
-    PutOrder(array);
-    Shuffle(array);
+    if ((matrix.GetLength(0) * matrix.GetLength(1) * matrix.GetLength(2)) > 90) 
+    Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 90");
 
-    for (int i = 0; i < valueX * valueY * valueZ;)
+    for (int i = 0; i < matrix.GetLength(0) * matrix.GetLength(1) * matrix.GetLength(2);)
     {
-        for (int x = 0; x < valueX; x++)
+        for (int x = 0; x < matrix.GetLength(0); x++)
         {
-            for (int y = 0; y < valueY; y++)
+            for (int y = 0; y < matrix.GetLength(1); y++)
             {
-                for (int z = 0; z < valueZ; z++)
+                for (int z = 0; z < matrix.GetLength(2); z++)
                 {
-                    matrix[x, y, z] = array[i];
+                    matrix[x, y, z] = fill[i];
                     i++;
                 }
 
@@ -190,7 +184,7 @@ int[,,] Matrix3D(int valueX, int valueY, int valueZ)  //  Взят у Евген
     return matrix;
 }
 
-void PrintMatrix3D(int[,,] matrix)  //  Метод для вывода в консоль 3d матрицы
+void PrintMatrix3D(int[,,] matrix)  
 {
     for (int x = 0; x < matrix.GetLength(0); x++)
     {
@@ -198,14 +192,12 @@ void PrintMatrix3D(int[,,] matrix)  //  Метод для вывода в кон
         {
             for (int z = 0; z < matrix.GetLength(2); z++)
             {
-                System.Console.Write($"{matrix[x, y, z]} ({x}, {y}, {z}) ");
+                Console.Write($"{matrix[x, y, z]} -> ({x}, {y}, {z}) ");
             }
-            System.Console.WriteLine();
+            Console.WriteLine();
         }
     }
 }
-
-
 
 //методы конец
 
@@ -277,7 +269,8 @@ void HomeWork()
                 int sizeX = InputUser("Введите размер по оси X: ");
                 int sizeY = InputUser("Введите размер по оси Y: ");
                 int sizeZ = InputUser("Введите размер по оси Z: ");
-                int[,,] matrix60 = Matrix3D(sizeX, sizeY, sizeZ);
+                int[] fillarray = GetShuffleArray();
+                int[,,] matrix60 = Matrix3D(sizeX, sizeY, sizeZ, fillarray);
                 PrintMatrix3D(matrix60);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
