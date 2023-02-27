@@ -163,9 +163,6 @@ int[,,] Matrix3D(int valueX, int valueY, int valueZ, int[] fill)
 {
     int[,,] matrix = new int[valueX, valueY, valueZ];
 
-    if ((matrix.GetLength(0) * matrix.GetLength(1) * matrix.GetLength(2)) > 90) 
-    Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 90");
-
     for (int i = 0; i < matrix.GetLength(0) * matrix.GetLength(1) * matrix.GetLength(2);)
     {
         for (int x = 0; x < matrix.GetLength(0); x++)
@@ -184,7 +181,7 @@ int[,,] Matrix3D(int valueX, int valueY, int valueZ, int[] fill)
     return matrix;
 }
 
-void PrintMatrix3D(int[,,] matrix)  
+void PrintMatrix3D(int[,,] matrix)
 {
     for (int x = 0; x < matrix.GetLength(0); x++)
     {
@@ -269,11 +266,19 @@ void HomeWork()
                 int sizeX = InputUser("Введите размер по оси X: ");
                 int sizeY = InputUser("Введите размер по оси Y: ");
                 int sizeZ = InputUser("Введите размер по оси Z: ");
-                int[] fillarray = GetShuffleArray();
-                int[,,] matrix60 = Matrix3D(sizeX, sizeY, sizeZ, fillarray);
-                PrintMatrix3D(matrix60);
-                Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
-                Console.ReadKey();
+                if ((sizeX * sizeY * sizeZ) > 90)
+                {
+                    Console.WriteLine("Слишком большой размер. Количество значений не должно превышать 90");
+                    Console.ReadKey(); break;
+                }
+                else
+                {
+                    int[] fillarray = GetShuffleArray();
+                    int[,,] matrix60 = Matrix3D(sizeX, sizeY, sizeZ, fillarray);
+                    PrintMatrix3D(matrix60);
+                    Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
+                    Console.ReadKey();
+                }
                 break;
 
             default: Console.WriteLine("Такой задачи не существует"); break;
