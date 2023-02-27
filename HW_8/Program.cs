@@ -120,7 +120,22 @@ void MinSumInRows(int[,] matrix)
     System.Console.WriteLine($"Cтрока с наименьшей суммой элементов -> {indexMinSum}");
 }
 
+int[,] MultiplexMatrix(int[,] first, int[,] second)
+{
+    int[,] multiMatrix = new int[first.GetLength(0), second.GetLength(1)];
 
+    for (int i = 0; i < first.GetLength(0); i++)
+    {
+        for (int l = 0; l < second.GetLength(1); l++)
+        {
+            for (int k = 0; k < second.GetLength(0); k++)
+            {
+                multiMatrix[i, l] += first[i, k] * second[k, l];
+            }
+        }
+    }
+    return multiMatrix;
+}
 
 //методы конец
 
@@ -173,14 +188,16 @@ void HomeWork()
 
             case 58:
                 Console.Clear();
-                rows = InputUser("Введите количество строк для матриц: ");
-                columns = InputUser("Введите количество столбцов для матриц: ");
+                rows = InputUser("Введите количество строк для матриц: ");              //Операция умножения двух матриц выполнима только в том случае, если число столбцов в первом сомножителе равно числу строк во втором; 
+                columns = InputUser("Введите количество столбцов для матриц: ");        //в этом случае говорят, что матрицы согласованы. В частности, умножение всегда выполнимо, если оба сомножителя — квадратные матрицы одного и того же порядка.
                 min = InputUser("Введите минимальное значение: ");
                 max = InputUser("Введите максимальное значение: ");
                 int[,] matrixFirst = GetMatrix(rows, columns, min, max);
-                int[,] matrixSecond = GetMatrix(rows, columns, min, max);
-                Print(matrixFirst); Console.WriteLine(); Print(matrixSecond); Console.WriteLine();
-
+                int[,] matrixSecond = GetMatrix(columns, rows, min, max);
+                Print(matrixFirst); Console.WriteLine(); 
+                Print(matrixSecond); Console.WriteLine();
+                int[,] matrix58 = MultiplexMatrix(matrixFirst, matrixSecond);
+                Print(matrix58);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
