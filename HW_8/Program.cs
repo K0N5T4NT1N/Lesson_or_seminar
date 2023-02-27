@@ -51,7 +51,6 @@ int InputUser(string message)
     return result;
 }
 
-
 int[,] GetMatrix(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными целыми числами.
 {
     int[,] matrix = new int[rows, columns];
@@ -65,19 +64,6 @@ int[,] GetMatrix(int rows, int columns, int min, int max) //двумерный �
     return matrix;
 }
 
-double[,] GetMatrixDouble(int rows, int columns, int min, int max) //двумерный массив размером m×n, заполненный случайными вещественными числами.
-{
-    double[,] matrix = new double[rows, columns];
-    for (int i = 0; i < rows; i++)
-    {
-        for (int l = 0; l < columns; l++)
-        {
-            matrix[i, l] = new Random().Next(min, max + 1) + new Random().NextDouble();
-        }
-    }
-    return matrix;
-}
-
 void Print(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++)
@@ -85,18 +71,6 @@ void Print(int[,] matrix)
         for (int l = 0; l < matrix.GetLength(1); l++)
         {
             Console.Write(matrix[i, l] + " ");
-        }
-        Console.WriteLine();
-    }
-}
-
-void PrintDouble(double[,] matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int l = 0; l < matrix.GetLength(1); l++)
-        {
-            Console.Write($"{Math.Round(matrix[i, l], 2)} ");
         }
         Console.WriteLine();
     }
@@ -121,19 +95,29 @@ void DescendingSortOrder(int[,] matrix)
     }
 }
 
-double[] AverageArray(int[,] matrix)
+void MinSumInRows(int[,] matrix)
 {
-    double[] result = new double[matrix.GetLength(1)];
-    for (int i = 0; i < matrix.GetLength(1); i++)
+    int? minSum = null;
+    int indexMinSum = 0;
+    for (int i = 0; i < matrix.GetLength(0); i++)
     {
-        double temp = 0;
-        for (int l = 0; l < matrix.GetLength(0); l++)
+        int sumRow = 0;
+        for (int l = 0; l < matrix.GetLength(1); l++)
         {
-            temp += matrix[l, i];
+            sumRow += matrix[i, l];
         }
-        result[i] = temp / matrix.GetLength(0);
+        if (i == 0)
+        {
+            minSum = sumRow;
+            indexMinSum = i + 1;
+        }
+        else if (sumRow < minSum)
+        {
+            minSum = sumRow;
+            indexMinSum = i + 1;
+        }
     }
-    return result;
+    System.Console.WriteLine($"Cтрока с наименьшей суммой элементов -> {indexMinSum}");
 }
 
 
@@ -168,7 +152,7 @@ void HomeWork()
                 int min = InputUser("Введите минимальное значение: ");
                 int max = InputUser("Введите максимальное значение: ");
                 int[,] matrix54 = GetMatrix(rows, columns, min, max);
-                Print(matrix54); System.Console.WriteLine();
+                Print(matrix54); Console.WriteLine();
                 DescendingSortOrder(matrix54); Print(matrix54);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
@@ -176,23 +160,27 @@ void HomeWork()
 
             case 56:
                 Console.Clear();
-                int[,] matrix50 = GetMatrix(12, 12, 0, 20);
-                int indexRow = InputUser("Введите индекс строки в массиве: ");
-                int indexColumn = InputUser("Введите индекс столбца в массиве: ");
-                Print(matrix50); 
+                rows = InputUser("Введите количество строк (m): ");
+                columns = InputUser("Введите количество столбцов (n): ");
+                min = InputUser("Введите минимальное значение: ");
+                max = InputUser("Введите максимальное значение: ");
+                int[,] matrix56 = GetMatrix(rows, columns, min, max);
+                Print(matrix56); Console.WriteLine();
+                MinSumInRows(matrix56);
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
 
             case 58:
                 Console.Clear();
-                rows = InputUser("Введите количество строк: ");
-                columns = InputUser("Введите количество столбцов: ");
+                rows = InputUser("Введите количество строк для матриц: ");
+                columns = InputUser("Введите количество столбцов для матриц: ");
                 min = InputUser("Введите минимальное значение: ");
                 max = InputUser("Введите максимальное значение: ");
-                int[,] matrix52 = GetMatrix(rows, columns, min, max);
-                Print(matrix52); double[] outputArray = AverageArray(matrix52);
-                Console.WriteLine($"Среднее арифметическое каждого столбца: {String.Join("; ", outputArray)}");
+                int[,] matrixFirst = GetMatrix(rows, columns, min, max);
+                int[,] matrixSecond = GetMatrix(rows, columns, min, max);
+                Print(matrixFirst); Console.WriteLine(); Print(matrixSecond); Console.WriteLine();
+
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
@@ -200,7 +188,7 @@ void HomeWork()
             case 60:
                 int size = InputUser("Введите размер матрицы: ");
                 int count = InputUser("Введите начальное значение: ");
-                
+
                 Console.WriteLine("\nДля продолжения нажмите любую клавишу...");
                 Console.ReadKey();
                 break;
