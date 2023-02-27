@@ -146,11 +146,11 @@ int[] GetShuffleArray()
         array[i] = i + 10;
     }
 
-    Random rand = new Random();
+    Random fill = new Random();
 
     for (int i = array.Length - 1; i >= 1; i--)
     {
-        int k = rand.Next(i + 1);
+        int k = fill.Next(i + 1);
 
         int temp = array[k];
         array[k] = array[i];
