@@ -269,7 +269,6 @@ Console.WriteLine($"Для FibonacciR прошло: {DateTime.Now - saveTime}");
 // ========================= ВИКТОРИНА =========================
 # nullable disable
 
-#pragma warning restore format
 string[,] array =
 {
     {"Какие из перечисленных ниже программ являются антивирусными?", "MS Word", "Dr.Web", "Chrome", "PDFreader", "Dr.Web"},
@@ -322,6 +321,8 @@ bool Comparesment(int value, int index)
 {
     return array[index, value] == array[index, array.GetLength(1) - 1];
 }
+
+//------------------------------------------------------------------------------------------------------------
 
 string[] questionsArray = {"Сколько зубов у взрослого человека (без зубов мудрости)?" + "\r\n"+
 "1) 28 2) 32  3) 26 4) 20",
